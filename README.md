@@ -3,7 +3,7 @@ Próximos passos (Podemos discutir se realmente será adotado a estratégia abai
 
             - Enviar vetor para arquivo -------------------------> (done)
             
-            - Ler o arquivo criado
+            - Ler o arquivo criado ------------------------------> (done)
             
             - Dividir o arquivo criado em vários outros menores
             (definir quantos valores vão ficar em cada arquivo)

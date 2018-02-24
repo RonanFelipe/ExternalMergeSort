@@ -1,9 +1,12 @@
 package merge;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class MergeArquivo {
 
@@ -29,5 +32,19 @@ public class MergeArquivo {
         } catch (IOException ex){
             ex.printStackTrace();
         }
+    }
+
+    public static int[] lerArquivo() {
+        int[] vetor = new int[10];
+        try {
+            File f = new File("PrimeiroArquivo.txt");
+            Scanner scanner = new Scanner(f);
+            for (int i = 0; i < vetor.length; i++){
+                vetor[i] = scanner.nextInt();
+            }
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return vetor;
     }
 }
