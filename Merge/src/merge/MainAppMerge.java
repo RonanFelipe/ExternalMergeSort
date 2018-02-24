@@ -5,9 +5,10 @@ public class MainAppMerge {
         int[] vetor = new int[1000]; //Criando vetor de tamanho 1000 (Pode ser qualquer tamanho)
         MergeArquivo.preencheVetor(vetor, vetor.length);//Inserindo valores randomicos no vetor
         MergeArquivo.mostraVetor(vetor);//mostrando vetor
+        MergeArquivo.criarArquivo(vetor);
         /*
-        Próximos passos
-            - Enviar vetor para arquivo
+        Próximos passos (Podemos discutir se realmente será adotado a estratégia abaixo)
+            - Enviar vetor para arquivo -------------------------> (done)
             - Ler o arquivo criado
             - Dividir o arquivo criado em vários outros menores
             (definir quantos valores vão ficar em cada arquivo)
