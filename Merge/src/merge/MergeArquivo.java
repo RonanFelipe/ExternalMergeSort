@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class MergeArquivo {
@@ -34,17 +32,17 @@ public class MergeArquivo {
         }
     }
 
-    public static int[] lerArquivo() {
-        int[] vetor = new int[10];
+    public static int[] lerArquivo() {  //Método para ler arquivo
+        int[] vetor = new int[10];  //sabe-se que o arquivo tem 10 inteiros (procurar melhor solução para esse tamanho)
         try {
-            File f = new File("PrimeiroArquivo.txt");
-            Scanner scanner = new Scanner(f);
+            File f = new File("PrimeiroArquivo.txt");   //criando o arquivo
+            Scanner scanner = new Scanner(f);   //scanner para ler cada valor separado por espaço no arquivo
             for (int i = 0; i < vetor.length; i++){
-                vetor[i] = scanner.nextInt();
+                vetor[i] = scanner.nextInt();   //enviando cada posição do arquivo separado por espaço para o vetor
             }
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
-        return vetor;
+        return vetor;   //retornando o vetor criado a partir do arquivo lido
     }
 }
