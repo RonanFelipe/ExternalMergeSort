@@ -33,7 +33,7 @@ public class MergeArquivo {
     }
 
     public static int[] lerArquivo() {  //Método para ler arquivo
-        int[] vetor = new int[10];  //sabe-se que o arquivo tem 10 inteiros (procurar melhor solução para esse tamanho)
+        int[] vetor = new int[100];  //sabe-se que o arquivo tem 100 inteiros (procurar melhor solução para esse tamanho)
         try {
             File f = new File("PrimeiroArquivo.txt");   //criando o arquivo
             Scanner scanner = new Scanner(f);   //scanner para ler cada valor separado por espaço no arquivo
@@ -44,5 +44,24 @@ public class MergeArquivo {
             ex.printStackTrace();
         }
         return vetor;   //retornando o vetor criado a partir do arquivo lido
+    }
+
+    public static void dividirArquivo(int[] vetor){ //método para dividir vetor em 10 arquivos
+        try {
+            int z = 1;  //cade vez que há um break, o indice j volta a zero, para evitar isso essa variável é incrementada de 10 em 10 sendo igualada ao indice j
+            for (int i = 0; i < 10; i++, z+=10){
+                File arquivo = new File("arquivo"+i+".txt");    //cada novo arquivo será chamado de arquivo0.txt, sendo o número a variável i concatenada com o nome do arquivo
+                FileWriter fw = new FileWriter(arquivo);
+                for (int j = z; j < vetor.length; j++){ //j sendo igualado a z para não ser zerado quando acontecer um break
+                    fw.write(Integer.toString(vetor[j-1])+" "); //j-1 pois j está com idice 1, pois z começa com 1
+                    if (j!=0 && j%10==0){   //se j for diferente de zero e divisivel por 10 break e comece um novo arquivo
+                        break;
+                    }
+                }
+                fw.flush();
+            }
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
 }
