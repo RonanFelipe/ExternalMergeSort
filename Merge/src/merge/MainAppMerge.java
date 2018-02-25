@@ -19,7 +19,7 @@ public class MainAppMerge {
             - Ler o arquivo criado ------------------------------> (done)
             - Criar um vetor a partir do arquivo lido -----------> (done)
             - Dividir o arquivo criado em vários outros menores
-            (definir quantos valores vão ficar em cada arquivo)
+            (definir quantos valores vão ficar em cada arquivo)--> (done)
             - Ordenar cada um dos "mini" arquivos (talvez possa usar quicksort aqui)
             - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)
             - salvar o novo arquivo que está completamente ordenado
