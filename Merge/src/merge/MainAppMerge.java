@@ -11,7 +11,8 @@ public class MainAppMerge {
         int[] resultVetor = MergeArquivo.lerArquivo();//lendo arquivo e inserindo dados em um novo vetor
         System.out.println("Novo Vetor, criado a partir do arquivo lido");
         MergeArquivo.mostraVetor(resultVetor);//mostrando novo Vetor que foi criado a partir do arquivo lido
-        MergeArquivo.dividirArquivo(resultVetor);
+        MergeArquivo.dividirArquivo(resultVetor);//Dividindo vetor em mini arquivos
+        MergeArquivo.lerMiniArquivos();//ordenando os mini arquivos com quicksort
         /*
         Próximos passos (Podemos discutir se realmente será adotado a estratégia abaixo)
             - Criar vetor, preenchendo com números aleatórios ---> (done)

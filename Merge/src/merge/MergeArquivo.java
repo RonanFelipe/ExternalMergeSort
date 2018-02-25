@@ -64,4 +64,32 @@ public class MergeArquivo {
             ex.printStackTrace();
         }
     }
+
+    public static void lerMiniArquivos(){   //método para ler cada mini arquivo e ordena-los com quicksort
+        int[] vetor = new int[10];  //tamanho de cada mini arquivo(cada mini arquivo tem 10 numeros)
+        try {
+            for (int i = 0; i < 10; i++){
+                File f = new File("arquivo"+i+".txt");  //abrindo mini arquivo, sequencia de 0 a 9
+                Scanner scanner = new Scanner(f);
+                for (int j = 0; j < vetor.length; j++){
+                    vetor[j] = scanner.nextInt();   //cada mini arquivo é enviado ao vetor
+                    if (i == 9 && j == 8)   //if usado para pular o erro do arquivo9 que contém somente 9 números
+                        break;
+                }
+                Quicksort.quicksort(vetor, 0, vetor.length-1);  //quicksort para ordenar o vetor
+                System.out.println("Mostrando Vetor");
+                mostraVetor(vetor);
+                try(FileWriter fw = new FileWriter(f)) {
+                    for (int k = 0; k < vetor.length; k++){
+                        fw.write(Integer.toString(vetor[k])+" ");   //salvando o vetor ordenado no mini arquivo novamente
+                    }   //nesse momento temos todos os mini arquivos ordenados, faltando somente da o merge para ordenar novamente
+                    fw.flush();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        } catch (FileNotFoundException ex){
+            ex.printStackTrace();
+        }
+    }
 }
