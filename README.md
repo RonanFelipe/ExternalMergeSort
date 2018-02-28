@@ -11,3 +11,7 @@ Próximos passos (Podemos discutir se realmente será adotado a estratégia abai
                         - Ordenar cada um dos "mini" arquivos (talvez possa usar quicksort aqui)---> (done)
                         - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)--> (done)
                         - salvar o novo arquivo que está completamente ordenado--------------------> (done)
+                        
+                        
+                        - Atualmente o algoritmo só aceita o tamanho de vetor 100 (toDo)
+                        - Necessário realizar alterações para aceitar qualquer valor N como tamanho do vetor (toDo)
