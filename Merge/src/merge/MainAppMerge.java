@@ -1,9 +1,11 @@
 package merge;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class MainAppMerge {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         int[] vetor = new int[100]; //Criando vetor de tamanho 100 (Pode ser qualquer tamanho)
         MergeArquivo.preencheVetor(vetor, vetor.length);//Inserindo valores randomicos no vetor
         MergeArquivo.mostraVetor(vetor);//mostrando vetor
@@ -13,6 +15,8 @@ public class MainAppMerge {
         MergeArquivo.mostraVetor(resultVetor);//mostrando novo Vetor que foi criado a partir do arquivo lido
         MergeArquivo.dividirArquivo(resultVetor);//Dividindo vetor em mini arquivos
         MergeArquivo.lerMiniArquivos();//ordenando os mini arquivos com quicksort
+        MergeArquivo.unirArquivos();
+        System.out.println("Teste");
         /*
         Próximos passos (Podemos discutir se realmente será adotado a estratégia abaixo)
             - Criar vetor, preenchendo com números aleatórios -------------------------> (done)
@@ -22,8 +26,8 @@ public class MainAppMerge {
             - Dividir o arquivo criado em vários outros menores
             (definir quantos valores vão ficar em cada arquivo)------------------------> (done)
             - Ordenar cada um dos "mini" arquivos (talvez possa usar quicksort aqui)---> (done)
-            - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)
-            - salvar o novo arquivo que está completamente ordenado
+            - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)--> (done)
+            - salvar o novo arquivo que está completamente ordenado--------------------> (done)
          */
     }
 }

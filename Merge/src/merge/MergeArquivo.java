@@ -22,7 +22,7 @@ public class MergeArquivo {
 
     public static void criarArquivo(int vetor[]){   //método para salvar o vetor em arquivo txt
         File arquivo = new File("PrimeiroArquivo.txt"); //Criando arquivo txt
-        try(FileWriter fw = new FileWriter(arquivo)){   //necessário try catch para pegar eventuais erros
+        try(FileWriter fw = new FileWriter(arquivo)){   //necessário try catch para pegar eventuais erros ao escrever no arquivo
             for (int i = 0; i < vetor.length; i++){
                 fw.write(Integer.toString(vetor[i])+" ");   //escrevendo o vetor no arquivo
             }
@@ -92,4 +92,43 @@ public class MergeArquivo {
             ex.printStackTrace();
         }
     }
+
+    public static void unirArquivos() throws FileNotFoundException, IOException{
+        int qtdArquivos = 10;
+        int tamMini = 10;
+        for (int i = 1; i < qtdArquivos; i++){
+            File arquivo = new File("arquivo0.txt");
+            File mini = new File("arquivo"+i+".txt");
+            Scanner scanner = new Scanner(mini);
+            Scanner scannerArquivo = new Scanner(arquivo);
+            int tamArquivo0 = (i*10)+10;
+            int[] vetArquivo = new int[tamArquivo0];
+            int[] vet = new int[tamMini];
+            for (int j = 0; j < tamMini; j++){
+                vet[j] = scanner.nextInt();
+            }
+            for (int k = 0; k < tamArquivo0-10; k++){
+                vetArquivo[k] = scannerArquivo.nextInt();
+            }
+            for (int l = 0; l < tamMini; l++){
+                int posInsert = (vetArquivo.length-1)-l;
+                vetArquivo[posInsert] = vet[l];
+            }
+            scanner.close();
+            scannerArquivo.close();
+
+            Quicksort.quicksort(vetArquivo, 0, vetArquivo.length-1);
+            try(FileWriter fw = new FileWriter("arquivo0.txt")) {
+                for (int m = 0; m < vetArquivo.length; m++){
+                    fw.write(Integer.toString(vetArquivo[m])+" ");
+                }
+                fw.flush();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+            System.out.println();
+        }
+    }
+
+
 }

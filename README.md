@@ -9,5 +9,5 @@ Próximos passos (Podemos discutir se realmente será adotado a estratégia abai
                         - Dividir o arquivo criado em vários outros menores
                         (definir quantos valores vão ficar em cada arquivo)------------------------> (done)
                         - Ordenar cada um dos "mini" arquivos (talvez possa usar quicksort aqui)---> (done)
-                        - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)
-                        - salvar o novo arquivo que está completamente ordenado
+                        - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)--> (done)
+                        - salvar o novo arquivo que está completamente ordenado--------------------> (done)
