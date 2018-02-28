@@ -1,22 +1,22 @@
 package merge;
 
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
-import java.util.Arrays;
+
 
 public class MainAppMerge {
     public static void main(String[] args) throws IOException {
         int[] vetor = new int[100]; //Criando vetor de tamanho 100 (Pode ser qualquer tamanho)
         MergeArquivo.preencheVetor(vetor, vetor.length);//Inserindo valores randomicos no vetor
-        MergeArquivo.mostraVetor(vetor);//mostrando vetor
+        //MergeArquivo.mostraVetor(vetor);//mostrando vetor
         MergeArquivo.criarArquivo(vetor);//criando arquivo com o Vetor criado
         int[] resultVetor = MergeArquivo.lerArquivo();//lendo arquivo e inserindo dados em um novo vetor
-        System.out.println("Novo Vetor, criado a partir do arquivo lido");
-        MergeArquivo.mostraVetor(resultVetor);//mostrando novo Vetor que foi criado a partir do arquivo lido
+        //System.out.println("Novo Vetor, criado a partir do arquivo lido");
+        //MergeArquivo.mostraVetor(resultVetor);//mostrando novo Vetor que foi criado a partir do arquivo lido
         MergeArquivo.dividirArquivo(resultVetor);//Dividindo vetor em mini arquivos
         MergeArquivo.lerMiniArquivos();//ordenando os mini arquivos com quicksort
         MergeArquivo.unirArquivos();
-        System.out.println("Teste");
+        System.out.println("Executado com sucesso, o Arquivo0.txt está ordenado contendo os dados de todos os mini arquivos");
         /*
         Próximos passos (Podemos discutir se realmente será adotado a estratégia abaixo)
             - Criar vetor, preenchendo com números aleatórios -------------------------> (done)
@@ -29,5 +29,9 @@ public class MainAppMerge {
             - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)--> (done)
             - salvar o novo arquivo que está completamente ordenado--------------------> (done)
          */
+        /*
+            - Atualmente o algoritmo só aceita o tamanho de vetor 100 (toDo)
+            - Necessário realizar alterações para aceitar qualquer valor N como tamanho do vetor (toDo)
+        */
     }
 }

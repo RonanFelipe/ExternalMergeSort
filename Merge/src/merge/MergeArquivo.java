@@ -77,8 +77,6 @@ public class MergeArquivo {
                         break;
                 }
                 Quicksort.quicksort(vetor, 0, vetor.length-1);  //quicksort para ordenar o vetor
-                System.out.println("Mostrando Vetor");
-                mostraVetor(vetor);
                 try(FileWriter fw = new FileWriter(f)) {
                     for (int k = 0; k < vetor.length; k++){
                         fw.write(Integer.toString(vetor[k])+" ");   //salvando o vetor ordenado no mini arquivo novamente
