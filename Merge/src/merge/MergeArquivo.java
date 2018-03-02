@@ -32,8 +32,8 @@ public class MergeArquivo {
         }
     }
 
-    public static int[] lerArquivo() {  //Método para ler arquivo
-        int[] vetor = new int[100];  //sabe-se que o arquivo tem 100 inteiros (procurar melhor solução para esse tamanho)
+    public static int[] lerArquivo(int qtValores) {  //Método para ler arquivo
+        int[] vetor = new int[qtValores];  //sabe-se que o arquivo tem 100 inteiros (procurar melhor solução para esse tamanho)
         try {
             File f = new File("PrimeiroArquivo.txt");   //criando o arquivo
             Scanner scanner = new Scanner(f);   //scanner para ler cada valor separado por espaço no arquivo
@@ -65,16 +65,38 @@ public class MergeArquivo {
         }
     }
 
-    public static void lerMiniArquivos(){   //método para ler cada mini arquivo e ordena-los com quicksort
+    public static int callMiniFiles(int[] vetor){
+        int tamanhoVetor = vetor.length;
+        int divisao = tamanhoVetor/10;
+        for (int cont = 0; cont < divisao; cont++){
+            miniFiles(vetor, 10, cont);
+        }
+        return divisao;
+    }
+
+    public static void miniFiles(int[] vetor, int fixedValor, int cont){
+        try {
+            File arquivo = new File("arquivo"+cont+".txt");
+            FileWriter fw = new FileWriter(arquivo);
+            for (int i = 0; i < 10; i++){
+                fw.write(Integer.toString(vetor[cont*fixedValor+i])+" ");
+            }
+            fw.flush();
+        } catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public static void lerMiniArquivos(int qtArquivos){   //método para ler cada mini arquivo e ordena-los com quicksort
         int[] vetor = new int[10];  //tamanho de cada mini arquivo(cada mini arquivo tem 10 numeros)
         try {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < qtArquivos; i++){
                 File f = new File("arquivo"+i+".txt");  //abrindo mini arquivo, sequencia de 0 a 9
                 Scanner scanner = new Scanner(f);
                 for (int j = 0; j < vetor.length; j++){
                     vetor[j] = scanner.nextInt();   //cada mini arquivo é enviado ao vetor
-                    if (i == 9 && j == 8)   //if usado para pular o erro do arquivo9 que contém somente 9 números
-                        break;
+                    //if (i == 9 && j == 8)   //if usado para pular o erro do arquivo9 que contém somente 9 números
+                        //break;
                 }
                 Quicksort.quicksort(vetor, 0, vetor.length-1);  //quicksort para ordenar o vetor
                 try(FileWriter fw = new FileWriter(f)) {
@@ -130,19 +152,19 @@ public class MergeArquivo {
     }
     */
 
-    public static void callMergeFiles(){
-        int qtArquivos = 10;
+    public static void callMergeFiles(int quantidadeArquivos){
+        int qtArquivos = quantidadeArquivos;
         int tamArquivo = 10;
         do {
             tamArquivo *= 2;
-            if (tamArquivo > 100)
-                tamArquivo = 100;
+            if (tamArquivo > quantidadeArquivos*10)
+                tamArquivo = qtArquivos*10;
             mergeFiles(qtArquivos, tamArquivo);
             qtArquivos /= 2;
         } while (qtArquivos != 1);
     }
 
-    public static void mergeFiles(int qtArquivos, int tamArquivo){
+    public static void mergeFiles(int qtArquivos, int tamArquivo){//HARDEST ONE
         int nomeador = 0;
         try {
             for (int i = 0; i < qtArquivos; i+=2){
@@ -162,7 +184,7 @@ public class MergeArquivo {
                 for (int j= 0; j < vetAux1.length; j++){
                     vetAux1[j] = scannerImpar.nextInt();
                 }
-                for (int l = 0; l < vetAux0.length/2; l++){//unindo dois vetores
+                for (int l = 0; l < vetAux0.length/2; l++){
                     vetAux0[l] = vetAux1[l];
                     int posInsert = (vetAux0.length-1)-l;
                     vetAux0[posInsert] = vetAux2[l];

@@ -13,5 +13,7 @@ Próximos passos (Podemos discutir se realmente será adotado a estratégia abai
                         - salvar o novo arquivo que está completamente ordenado--------------------> (done)
                         
                         
-                        - Atualmente o algoritmo só aceita o tamanho de vetor 100 (toDo)
-                        - Necessário realizar alterações para aceitar qualquer valor N como tamanho do vetor (toDo)
+                        - Atualmente o algoritmo só aceita o tamanho de vetor 100 (FIXED)
+                        - Necessário realizar alterações para aceitar qualquer valor N como tamanho do vetor (FIXED)
+                        - EVERYTHING DONE!!!!!!!!!!!
+                        -------------+[̲̅т̲̅н̲̅є̲̅ ̲̅J̲̅σ̲̅k̲̅є̲̅я̲̅]+-------------
