@@ -91,6 +91,7 @@ public class MergeArquivo {
         }
     }
 
+    /*
     public static void unirArquivos() throws FileNotFoundException, IOException{
         int qtdArquivos = 10;
         int tamMini = 10;
@@ -126,6 +127,63 @@ public class MergeArquivo {
             }
             System.out.println();
         }
+    }
+    */
+
+    public static void callMergeFiles(){
+        int qtArquivos = 10;
+        int tamArquivo = 10;
+        do {
+            tamArquivo *= 2;
+            if (tamArquivo > 100)
+                tamArquivo = 100;
+            mergeFiles(qtArquivos, tamArquivo);
+            qtArquivos /= 2;
+        } while (qtArquivos != 1);
+    }
+
+    public static void mergeFiles(int qtArquivos, int tamArquivo){
+        int nomeador = 0;
+        try {
+            for (int i = 0; i < qtArquivos; i+=2){
+                int[] vetAux0 = new int[tamArquivo];
+                int[] vetAux1 = new int[tamArquivo/2];
+                int[] vetAux2 = new int[tamArquivo/2];
+                File arquivoImpar = new File("arquivo"+i+".txt");
+                if (i + 1 != qtArquivos){
+                    File arquivoPar = new File("arquivo"+(i+1)+".txt");
+                    Scanner scannerPar = new Scanner(arquivoPar);
+                    for (int k = 0; k < vetAux2.length; k++){
+                        vetAux2[k] = scannerPar.nextInt();
+                    }
+                    scannerPar.close();
+                }
+                Scanner scannerImpar = new Scanner(arquivoImpar);
+                for (int j= 0; j < vetAux1.length; j++){
+                    vetAux1[j] = scannerImpar.nextInt();
+                }
+                for (int l = 0; l < vetAux0.length/2; l++){//unindo dois vetores
+                    vetAux0[l] = vetAux1[l];
+                    int posInsert = (vetAux0.length-1)-l;
+                    vetAux0[posInsert] = vetAux2[l];
+                }
+                scannerImpar.close();
+                Quicksort.quicksort(vetAux0, 0, vetAux0.length-1);
+                try (FileWriter fw = new FileWriter("arquivo"+nomeador+".txt")){
+                    for (int m = 0; m < vetAux0.length; m++){
+                        fw.write(Integer.toString(vetAux0[m])+" ");
+                    }
+                    fw.flush();
+                    nomeador++;
+                } catch (IOException ex){
+                    ex.printStackTrace();
+                }
+            }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
