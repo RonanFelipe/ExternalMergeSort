@@ -15,7 +15,7 @@ public class MainAppMerge {
         //MergeArquivo.mostraVetor(resultVetor);//mostrando novo Vetor que foi criado a partir do arquivo lido
         MergeArquivo.dividirArquivo(resultVetor);//Dividindo vetor em mini arquivos
         MergeArquivo.lerMiniArquivos();//ordenando os mini arquivos com quicksort
-        MergeArquivo.unirArquivos();
+        MergeArquivo.callMergeFiles();
         System.out.println("Executado com sucesso, o Arquivo0.txt está ordenado contendo os dados de todos os mini arquivos");
         /*
         Próximos passos (Podemos discutir se realmente será adotado a estratégia abaixo)
