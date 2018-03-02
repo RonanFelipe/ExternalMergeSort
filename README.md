@@ -6,12 +6,12 @@ Próximos passos (Podemos discutir se realmente será adotado a estratégia abai
                         - Enviar vetor para arquivo -----------------------------------------------> (done)
                         - Ler o arquivo criado ----------------------------------------------------> (done)
                         - Criar um vetor a partir do arquivo lido ---------------------------------> (done)
-                        - Dividir o arquivo criado em vários outros menores
-                        (definir quantos valores vão ficar em cada arquivo)------------------------> (done)
-                        - Ordenar cada um dos "mini" arquivos (talvez possa usar quicksort aqui)---> (done)
-                        - intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort)--> (done)
-                        - salvar o novo arquivo que está completamente ordenado--------------------> (done)
-                        
-                        
-                        - Atualmente o algoritmo só aceita o tamanho de vetor 100 (toDo)
-                        - Necessário realizar alterações para aceitar qualquer valor N como tamanho do vetor (toDo)
+                        - Dividir o arquivo criado em vários outros menores -----------------------> 
+                        - Definir quantos valores vão ficar em cada arquivo -----------------------> (done)
+                        - Ordenar cada um dos "mini" arquivos (talvez possa usar quicksort aqui) --> (done)
+                        - Intercalar os "mini" arquivos ordenando em um único arquivo (mergeSort) -> (done)
+                        - Salvar o novo arquivo que está completamente ordenado -------------------> (done)
+
+            TODO:
+                        - Atualmente o algoritmo só aceita o tamanho de vetor 100 (TODO)
+                        - Necessário realizar alterações para aceitar qualquer valor N como tamanho do vetor (TODO)
