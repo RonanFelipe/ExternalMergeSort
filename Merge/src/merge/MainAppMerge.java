@@ -7,7 +7,7 @@ import java.io.IOException;
 public class MainAppMerge {
     public static void main(String[] args) throws IOException {
         int qtValores = 100;
-        int[] vetor = new int[qtValores]; //Criando vetor de tamanho 100 (Pode ser qualquer tamanho)
+        int[] vetor = new int[qtValores]; //Criando vetor de tamanho 1000 (Pode ser qualquer tamanho multiplo de 100)
         MergeArquivo.preencheVetor(vetor, vetor.length);//Inserindo valores randomicos no vetor
         MergeArquivo.criarArquivo(vetor);//criando arquivo com o Vetor criado
         int[] resultVetor = MergeArquivo.lerArquivo(qtValores);//lendo arquivo e inserindo dados em um novo vetor
