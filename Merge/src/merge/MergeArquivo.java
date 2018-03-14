@@ -45,6 +45,7 @@ public class MergeArquivo {
         }
         return vetor;   //retornando o vetor criado a partir do arquivo lido
     }
+/*
 
     public static void dividirArquivo(int[] vetor){ //método para dividir vetor em 10 arquivos
         try {
@@ -64,6 +65,7 @@ public class MergeArquivo {
             ex.printStackTrace();
         }
     }
+*/
 
     public static int callMiniFiles(int[] vetor){
         int tamanhoVetor = vetor.length;
